@@ -30,7 +30,7 @@ const Sidebar = () =>
 					>
 						<SiShopware />
 						<span>
-							Shoppy
+							Admin
 						</span>
 					</Link>
 

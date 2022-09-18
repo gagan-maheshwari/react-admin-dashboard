@@ -1,19 +1,28 @@
-The project uses the following stacks:
+# The project uses the following stacks:
 
-# Backend
-### None
+## Backend
 
-# Frontend
-### React
+> ### None
+---
+     
+## Frontend
 
-# CSS
-### tailwind
-
-# UI Components
-### syncfusion
-
-# Hosting
-### Netlify
-
-# URL
-### 
+> ### React
+---
+  
+## CSS
+> ### tailwind
+---
+  
+## UI Components
+> ### syncfusion
+---
+  
+## Hosting
+> ### Netlify
+---
+  
+## URL
+> ### https://gm-react-admin-dashboard.netlify.app/
+---
+  
