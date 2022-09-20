@@ -8,6 +8,7 @@ import { Ecommerce, Orders, Calendar, Kanban, Employees, Stacked, Pyramid, Custo
 
 import "./App.css";
 import { useStateContext } from "./contexts/ContextProvider";
+import ThemeSettingsParent from './components/ThemeSettingsParent';
 
 const App = () =>
 {
@@ -54,7 +55,7 @@ const App = () =>
 						</div>
 
 						<div>
-							{themeSettings && <ThemeSettings />}
+							{themeSettings && <ThemeSettingsParent />}
 
 							<Routes>
 								{/* Dashboard */}
