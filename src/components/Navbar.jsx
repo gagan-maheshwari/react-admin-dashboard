@@ -10,6 +10,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import avatar from '../data/avatar.jpg';
 import { Cart, Chat, Notification, UserProfile } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
+import EscapeHideWrapper from '../utility/ESCHideWrapper';
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) =>
 (
@@ -86,10 +87,13 @@ const Navbar = () =>
 					</div>
 				</TooltipComponent>
 
-				{isClicked.cart && <Cart />}
-				{isClicked.chat && <Chat />}
-				{isClicked.notification && <Notification />}
-				{isClicked.userProfile && <UserProfile />}
+				{isClicked.cart && 
+					<EscapeHideWrapper component="cart">
+						<Cart />
+					</ EscapeHideWrapper>}
+				{isClicked.chat && <EscapeHideWrapper  component="chat"> <Chat /> </ EscapeHideWrapper>}
+				{isClicked.notification && <EscapeHideWrapper  component="notification"> <Notification /> </EscapeHideWrapper>}
+				{isClicked.userProfile && <EscapeHideWrapper  component="userProfile"> <UserProfile /> </EscapeHideWrapper>}
 			</div>
 		</div>
 	);
