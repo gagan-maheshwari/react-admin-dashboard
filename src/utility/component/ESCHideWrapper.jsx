@@ -1,9 +1,8 @@
 import react, { useEffect } from "react";
-import { useStateContext } from "../contexts/ContextProvider";
+import { useStateContext } from "../../contexts/ContextProvider";
 
 const ESCHideWrapper = (props) =>
 {
-
     const { setThemeSettings, setIsClicked } = useStateContext();
     const { component } = props;
 
