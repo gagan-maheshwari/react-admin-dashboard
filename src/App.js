@@ -8,7 +8,7 @@ import { Ecommerce, Orders, Calendar, Kanban, Employees, Stacked, Pyramid, Custo
 
 import "./App.css";
 import { useStateContext } from "./contexts/ContextProvider";
-import ThemeSettingsParent from './components/ThemeSettingsParent';
+import EscapeHideWrapper from './utility/ESCHideWrapper';
 
 const App = () =>
 {
@@ -55,7 +55,10 @@ const App = () =>
 						</div>
 
 						<div>
-							{themeSettings && <ThemeSettingsParent />}
+							{themeSettings && 
+								<EscapeHideWrapper component="settings">
+									<ThemeSettings />
+								</EscapeHideWrapper>}
 
 							<Routes>
 								{/* Dashboard */}

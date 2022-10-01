@@ -1,28 +1,28 @@
 import react, {useEffect} from 'react';
 
-import ThemeSettings from './ThemeSettings';
+import ThemeSettings from '../components/ThemeSettings';
 import { useStateContext } from "../contexts/ContextProvider";
 
 const ThemeSettingsParent = () => {
 	const {setThemeSettings } = useStateContext();
 
     const closeOnClick = (e) => {
-        setThemeSettings(false)
+        setThemeSettings(false);
     };
 
     const handleEscapeKey = (event) => {
         if (event.code === 'Escape') {
-          setThemeSettings(false)
+          setThemeSettings(false);
         }
-    }
+    };
 
     useEffect(() => {
-        document.addEventListener('keydown', handleEscapeKey)
+        document.addEventListener('keydown', handleEscapeKey);
         
         return () => {
-            document.removeEventListener('keydown', handleEscapeKey)
+            document.removeEventListener('keydown', handleEscapeKey);
         }
-    }, [])      
+    }, []);   
 
     return (
         <>
@@ -32,4 +32,4 @@ const ThemeSettingsParent = () => {
     );
 }
 
-export default ThemeSettingsParent
+export default ThemeSettingsParent;
