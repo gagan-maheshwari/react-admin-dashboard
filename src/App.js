@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
-import { Navbar, Footer, Cart, Sidebar, ThemeSettings } from "./components";
+import { Navbar, Sidebar, ThemeSettings } from "./components";
 import { Ecommerce, Orders, Calendar, Kanban, Employees, Stacked, Pyramid, Customers, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from "./pages";
 
 import "./App.css";
 import { useStateContext } from "./contexts/ContextProvider";
-import EscapeHideWrapper from './utility/ESCHideWrapper';
+import EscapeHideWrapper from './utility/component/ESCHideWrapper';
 
 const App = () =>
 {
@@ -54,11 +54,12 @@ const App = () =>
 							<Navbar />
 						</div>
 
-						<div>
-							{themeSettings && 
+						<div>;
+							{themeSettings &&
 								<EscapeHideWrapper component="settings">
 									<ThemeSettings />
-								</EscapeHideWrapper>}
+								</EscapeHideWrapper>
+							};
 
 							<Routes>
 								{/* Dashboard */}
@@ -86,11 +87,11 @@ const App = () =>
 								<Route path="/pyramid" element={<Pyramid />} />
 								<Route path="/stacked" element={<Stacked />} />
 							</Routes>
-						</div>
-					</div>
-				</div>
-			</BrowserRouter>
-		</div>
+						</div >
+					</div >
+				</div >
+			</BrowserRouter >
+		</div >
 	);
 };
 

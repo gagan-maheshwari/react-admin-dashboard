@@ -4,13 +4,13 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import { FiShoppingCart } from 'react-icons/fi';
 import { BsChatLeft } from 'react-icons/bs';
 import { RiNotification3Line } from 'react-icons/ri';
-import { MdArrowDownward, MdKeyboardArrowDown } from 'react-icons/md';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import avatar from '../data/avatar.jpg';
 import { Cart, Chat, Notification, UserProfile } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
-import EscapeHideWrapper from '../utility/ESCHideWrapper';
+import EscapeHideWrapper from '../utility/component/ESCHideWrapper';
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) =>
 (
@@ -25,32 +25,28 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) =>
 
 const Navbar = () =>
 {
-	const { menuActive, setMenuActive, isClicked, setIsClicked, currentColor, handleClick, screenSize, setScreenSize } = useStateContext();
+	const { setMenuActive, isClicked, currentColor, handleClick, setScreenSize } = useStateContext();
 
 	useEffect(() =>
 	{
 		const handleResize = () =>
 		{
+			if (window.innerWidth <= 900)
+			{
+				setMenuActive(false);
+			}
+			else
+			{
+				setMenuActive(true);
+			}
+
 			setScreenSize(window.innerWidth);
-			window.addEventListener("resize", handleResize);
-
-			handleResize();
-
-			return () => window.removeEventListener("resize", handleResize);
 		};
-	}, []);
 
-	useEffect(() =>
-	{
-		if (screenSize <= 900)
-		{
-			setMenuActive(false);
-		}
-		else
-		{
-			setMenuActive(true);
-		}
-	}, [screenSize]);
+		window.addEventListener("resize", handleResize);
+
+		return () => window.removeEventListener("resize", handleResize);
+	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	return (
 		<div className="flex justify-between p-2 md:ml-6 md:mx-6 relative">
@@ -74,6 +70,7 @@ const Navbar = () =>
 					<div className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg" onClick={() => handleClick("userProfile")}>
 						<img
 							src={avatar}
+							alt="avatar"
 							className="rounded-full w-8 h-8" />
 						<p>
 							<span className="text-gray-400 text-14">
@@ -85,17 +82,17 @@ const Navbar = () =>
 						</p>
 						<MdKeyboardArrowDown className="text-gray-400 text-14" />
 					</div>
-				</TooltipComponent>
+				</TooltipComponent>;
 
-				{isClicked.cart && 
+				{isClicked.cart &&
 					<EscapeHideWrapper component="cart">
 						<Cart />
 					</ EscapeHideWrapper>}
-				{isClicked.chat && <EscapeHideWrapper  component="chat"> <Chat /> </ EscapeHideWrapper>}
-				{isClicked.notification && <EscapeHideWrapper  component="notification"> <Notification /> </EscapeHideWrapper>}
-				{isClicked.userProfile && <EscapeHideWrapper  component="userProfile"> <UserProfile /> </EscapeHideWrapper>}
-			</div>
-		</div>
+				{isClicked.chat && <EscapeHideWrapper component="chat"> <Chat /> </ EscapeHideWrapper>}
+				{isClicked.notification && <EscapeHideWrapper component="notification"> <Notification /> </EscapeHideWrapper>}
+				{isClicked.userProfile && <EscapeHideWrapper component="userProfile"> <UserProfile /> </EscapeHideWrapper>}
+			</div >
+		</div >
 	);
 };
 
