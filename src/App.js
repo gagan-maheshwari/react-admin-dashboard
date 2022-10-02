@@ -54,12 +54,12 @@ const App = () =>
 							<Navbar />
 						</div>
 
-						<div>;
+						<div>
 							{themeSettings &&
 								<EscapeHideWrapper component="settings">
 									<ThemeSettings />
 								</EscapeHideWrapper>
-							};
+							}
 
 							<Routes>
 								{/* Dashboard */}
@@ -87,11 +87,11 @@ const App = () =>
 								<Route path="/pyramid" element={<Pyramid />} />
 								<Route path="/stacked" element={<Stacked />} />
 							</Routes>
-						</div >
-					</div >
-				</div >
-			</BrowserRouter >
-		</div >
+						</div>
+					</div>
+				</div>
+			</BrowserRouter>
+		</div>
 	);
 };
 

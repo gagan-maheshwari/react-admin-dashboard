@@ -82,7 +82,7 @@ const Navbar = () =>
 						</p>
 						<MdKeyboardArrowDown className="text-gray-400 text-14" />
 					</div>
-				</TooltipComponent>;
+				</TooltipComponent>
 
 				{isClicked.cart &&
 					<EscapeHideWrapper component="cart">
@@ -91,8 +91,8 @@ const Navbar = () =>
 				{isClicked.chat && <EscapeHideWrapper component="chat"> <Chat /> </ EscapeHideWrapper>}
 				{isClicked.notification && <EscapeHideWrapper component="notification"> <Notification /> </EscapeHideWrapper>}
 				{isClicked.userProfile && <EscapeHideWrapper component="userProfile"> <UserProfile /> </EscapeHideWrapper>}
-			</div >
-		</div >
+			</div>
+		</div>
 	);
 };
 
