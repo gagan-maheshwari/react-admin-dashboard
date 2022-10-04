@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import { debounce } from "lodash";
 
 import { AiOutlineMenu } from 'react-icons/ai';
 import { FiShoppingCart } from 'react-icons/fi';
@@ -29,7 +30,7 @@ const Navbar = () =>
 
 	useEffect(() =>
 	{
-		const handleResize = () =>
+		const handleResize = debounce(() =>
 		{
 			if (window.innerWidth <= 900)
 			{
@@ -41,7 +42,7 @@ const Navbar = () =>
 			}
 
 			setScreenSize(window.innerWidth);
-		};
+		}, 500);
 
 		window.addEventListener("resize", handleResize);
 

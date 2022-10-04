@@ -1,4 +1,4 @@
-import react, { useEffect } from "react";
+import { useEffect } from "react";
 import { useStateContext } from "../../contexts/ContextProvider";
 
 const ESCHideWrapper = (props) =>
@@ -41,7 +41,7 @@ const ESCHideWrapper = (props) =>
         {
             document.removeEventListener("keydown", handleEscapeKey);
         };
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <>

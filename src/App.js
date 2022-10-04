@@ -58,7 +58,8 @@ const App = () =>
 							{themeSettings &&
 								<EscapeHideWrapper component="settings">
 									<ThemeSettings />
-								</EscapeHideWrapper>}
+								</EscapeHideWrapper>
+							}
 
 							<Routes>
 								{/* Dashboard */}
